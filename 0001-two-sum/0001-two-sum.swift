@@ -1,18 +1,19 @@
 class Solution {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-        var first = 0
-        var second = 0
+        // hash map
+        var dict = [Int: Int]()
 
-        for i in 0..<nums.count {
-            var newTarget = target - nums[i]
-            for j in i+1..<nums.count {
-                if nums[j] == newTarget {
-                    first = i
-                    second = j
-                }
+        // get both index and value
+        for (index, num) in nums.enumerated() {
+            // 딕셔너리에 값이 이미 존재한다면
+            if let firstIndex = dict[num] {
+                return [firstIndex, index]
+            } else {
+                // 합이 target이 될 숫자 == target - 현재 숫자
+                dict[target - num] = index
             }
         }
 
-        return [first, second]
+        return []
     }
 }
