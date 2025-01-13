@@ -12,6 +12,7 @@ class Solution {
         if len2 == 0 {
             return len1
         } else {
+            // e.g. "ABABAB", "ABAB": 6, 4 -> 4, 2 -> 2, 0
             return gcd(len2, len1 % len2)
         }
     }
