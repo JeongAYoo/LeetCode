@@ -1,21 +1,12 @@
 class Solution {
     func findMaxAverage(_ nums: [Int], _ k: Int) -> Double {
-        let nums = nums.map { Double($0) }
-        var maxAvg: Double = 0
+        var maxSum: Int = Int.min
 
         for i in 0..<nums.count-k+1 {
-            let avg = nums[i..<i+k].reduce(0, +) / Double(k)
-
-            if i == 0 {
-                maxAvg = avg
-                continue;
-            }
-
-            if maxAvg < avg {
-                maxAvg = avg
-            }
+            let sum = nums[i..<i+k].reduce(0, +)
+            maxSum = max(maxSum, sum)
         }
 
-        return maxAvg
+        return Double(maxSum) / Double(k)
     }
 }
