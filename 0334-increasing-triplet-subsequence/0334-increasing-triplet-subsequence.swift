@@ -4,11 +4,11 @@ class Solution {
         var mid = Int.max
 
         for num in nums where nums.count >= 3 {
-            if num < min {
+            if num <= min {
                 min = num
-            } else if num > min && num < mid {
+            } else if num <= mid {
                 mid = num
-            } else if num > mid {
+            } else {
                 return true
             }
         }
