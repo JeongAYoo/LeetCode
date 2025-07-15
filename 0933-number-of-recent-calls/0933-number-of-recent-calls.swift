@@ -13,7 +13,7 @@ class RecentCounter {
         requests.append(t)
         
         if let last, last < t-3000 {
-            return 0
+            return 1
         }
          
         for i in 0..<requests.count {
