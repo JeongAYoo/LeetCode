@@ -5,8 +5,7 @@ class Solution {
         var right: Int = height.count - 1
 
         while left < right {
-            let area = (right - left) * min(height[left], height[right])
-            maxArea = max(area, maxArea)
+            maxArea = max(maxArea, (right - left) * min(height[left], height[right]))
 
             if height[left] < height[right] {
                 left += 1
