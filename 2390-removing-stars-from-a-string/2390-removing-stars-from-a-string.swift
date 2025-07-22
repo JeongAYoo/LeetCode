@@ -1,6 +1,6 @@
 class Solution {
     func removeStars(_ s: String) -> String {
-        var newString: String = ""
+        var newString: [Character] = []
 
         for char in s {
             if char == "*" {
@@ -10,6 +10,6 @@ class Solution {
             }
         }
 
-        return newString
+        return String(newString)
     }
 }
