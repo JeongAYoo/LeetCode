@@ -2,20 +2,19 @@ class Solution {
     func asteroidCollision(_ asteroids: [Int]) -> [Int] {
         var stack = [Int]()
 
-        for n in asteroids {
-            if n > 0 {
-                stack.append(n)
-            } else {
-                while let last = stack.last, last > 0, last < abs(n) {
+        outerLoop: for n in asteroids {
+            while n < 0, let last = stack.last, last > 0 {
+                if last < abs(n) {
                     stack.removeLast()
-                }
-
-                if let last = stack.last, last + n == 0 {
+                } else if last == abs(n) {
                     stack.removeLast()
-                }else if stack.isEmpty || stack.last! < 0 {
-                    stack.append(n)
+                    continue outerLoop
+                } else {
+                    continue outerLoop
                 }
             }
+
+            stack.append(n)
         }
 
         return stack
